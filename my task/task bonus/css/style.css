@@ -1,0 +1,773 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #e8e5df;
+    color: #171411;
+    font-family: Tahoma, Arial, sans-serif;
+    zoom: min(1, calc(100vw / 1086px), calc(100vh / 1400px));
+}
+
+.schedule-page {
+    width: 1050px;
+    height: max-content;
+    margin: 0 auto;
+    padding: 22px 18px 16px;
+    background: #fffefa;
+    box-shadow: 0 0 0 1px #cec9c0, 0 12px 32px rgb(34 28 20 / 16%);
+}
+
+.page-header {
+    padding: 0 18px 12px;
+    text-align: center;
+}
+
+.institution-row {
+    display: grid;
+    grid-template-columns: 1.05fr 1.1fr 1.05fr;
+    align-items: center;
+    min-height: 112px;
+    gap: 18px;
+}
+
+.institution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    line-height: 1.35;
+}
+
+.institution--university {
+    flex-direction: row;
+    text-align: right;
+}
+
+.institution--department {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+.institution--faculty {
+    flex-direction: row;
+    text-align: right;
+}
+
+.institution__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.institution--university .institution__copy {
+    align-items: flex-start;
+}
+
+.institution--faculty .institution__copy {
+    align-items: flex-end;
+}
+
+.institution__logo {
+    display: block;
+    flex: 0 0 auto;
+    object-fit: contain;
+}
+
+.institution__logo--university {
+    width: 68px;
+    height: 88px;
+}
+
+.institution__logo--faculty {
+    width: 88px;
+    height: 72px;
+}
+
+.institution__english {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    direction: ltr;
+}
+
+.institution strong {
+    font-size: 19px;
+    line-height: 1.45;
+}
+
+.heading-rule {
+    height: 2px;
+    margin: 2px 0 13px;
+    background: #302a24;
+}
+
+.page-header h1 {
+    margin: 0 0 5px;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.term-title,
+.class-title {
+    margin: 3px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.schedule-table {
+    width: 100% !important;
+    min-width: 0;
+    max-width: none;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 2px solid #171411;
+    background: #fff;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.schedule-table td {
+    width: auto !important;
+    box-sizing: border-box;
+    padding: 3px;
+    white-space: normal !important;
+}
+
+.schedule-notes {
+    margin-top: 8px;
+    padding: 7px 12px 0;
+    border-top: 1px solid #746c62;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.schedule-notes p {
+    margin: 1px 0;
+}
+
+.schedule-notes span {
+    display: inline-block;
+    min-width: 34px;
+    direction: ltr;
+    text-align: left;
+}
+
+@media print {
+
+    html,
+    body {
+        width: auto;
+        height: auto;
+        background: #fff;
+    }
+
+    body {
+        display: block;
+        overflow: visible;
+        zoom: 0.72;
+    }
+
+    .schedule-page {
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+
+/* Table column and row dimensions */
+.schedule-table .moved-style-1 {
+    width: 6.33333%
+}
+
+.schedule-table .moved-style-2 {
+    width: 12%
+}
+
+.schedule-table .moved-style-3 {
+    height: 15.0pt
+}
+
+.schedule-table .moved-style-4 {
+    border-bottom: 1.5pt solid black
+}
+
+.schedule-table .moved-style-5 {
+    height: 16.2pt
+}
+
+.schedule-table .moved-style-6 {
+    border-right: 1.5pt solid black
+}
+
+.schedule-table .moved-style-7 {
+    border-right: 1.5pt solid black;
+    border-bottom: .5pt solid black
+}
+
+.schedule-table .moved-style-8 {
+    border-right: 1.5pt solid black;
+    border-left: none
+}
+
+.schedule-table .moved-style-9 {
+    border-top: none;
+    border-left: none
+}
+
+.schedule-table .moved-style-10 {
+    border-bottom: 1.5pt solid black;
+    border-top: none
+}
+
+.schedule-table .moved-style-11 {
+    height: 22.2pt
+}
+
+.schedule-table .moved-style-12 {
+    border-bottom: .5pt solid black;
+    border-top: none
+}
+
+.schedule-table .moved-style-13 {
+    height: 19.8pt
+}
+
+.schedule-table .moved-style-14 {
+    height: 27.0pt
+}
+
+.schedule-table .moved-style-15 {
+    height: 25.8pt
+}
+
+.schedule-table .moved-style-16 {
+    height: 15.6pt
+}
+
+.schedule-table .moved-style-17 {
+    height: 22.8pt
+}
+
+.schedule-table .moved-style-18 {
+    border-right: 1.5pt solid black;
+    border-bottom: 1.5pt solid black
+}
+
+.schedule-table .moved-style-19 {
+    height: 25.2pt
+}
+
+.schedule-table .moved-style-20 {
+    height: 24.6pt
+}
+
+.schedule-table .moved-style-21 {
+    height: 21.0pt
+}
+
+.schedule-table .moved-style-22 {
+    height: 14.4pt
+}
+
+.schedule-table .moved-style-23 {
+    height: 16.8pt
+}
+
+.schedule-table .moved-style-24 {
+    height: 20.4pt
+}
+
+.schedule-table .moved-style-25 {
+    height: 19.2pt
+}
+
+.schedule-table .moved-style-26 {
+    height: 18.6pt
+}
+
+
+/* Excel cell styles */
+.schedule-table .xl65 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl66 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl67 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl68 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl69 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl70 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl71 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+}
+
+.schedule-table .xl72 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl74 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl77 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: yellow;
+}
+
+.schedule-table .xl79 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #FCE4D6;
+}
+
+.schedule-table .xl81 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #F8CBAD;
+    white-space: normal;
+}
+
+.schedule-table .xl87 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+    white-space: normal;
+}
+
+.schedule-table .xl96 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl99 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl102 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl105 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+    white-space: normal;
+}
+
+.schedule-table .xl111 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl114 {
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl116 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl119 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    white-space: normal;
+}
+
+.schedule-table .xl122 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #BDD7EE;
+}
+
+.schedule-table .xl124 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #F8CBAD;
+}
+
+.schedule-table .xl126 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #F8CBAD;
+}
+
+.schedule-table .xl132 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #BDD7EE;
+}
+
+.schedule-table .xl138 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl139 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #FFE699;
+}
+
+.schedule-table .xl141 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #FFE699;
+}
+
+.schedule-table .xl147 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+}
+
+.schedule-table .xl150 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl153 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #B4C6E7;
+}
+
+.schedule-table .xl155 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #FFE699;
+}
+
+.schedule-table .xl156 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #B4C6E7;
+}
+
+.schedule-table .xl162 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #FFE699;
+}
+
+.schedule-table .xl165 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: 1.5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+    white-space: normal;
+}
+
+.schedule-table .xl168 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+    white-space: normal;
+}
+
+.schedule-table .xl177 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #E2EFDA;
+    white-space: normal;
+}
+
+.schedule-table .xl183 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1.5pt solid windowtext;
+    border-right: none;
+    border-bottom: .5pt solid windowtext;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl186 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #F8CBAD;
+    white-space: normal;
+}
+
+.schedule-table .xl190 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+    background: #B4C6E7;
+    white-space: normal;
+}
+
+.schedule-table .xl193 {
+    font-size: 12.0pt;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    border-top: .5pt solid windowtext;
+    border-right: 1.5pt solid windowtext;
+    border-bottom: none;
+    border-left: 1.5pt solid windowtext;
+}
+
+.schedule-table .xl79,
+.schedule-table .xl80 {
+    background: repeating-linear-gradient(135deg, #fce4d6 0 5px, #202020 5px 7px);
+}

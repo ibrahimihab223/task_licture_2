@@ -1,0 +1,218 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e5e5e5;
+    font-family: Tahoma, Arial, sans-serif;
+    direction: rtl;
+    padding: 25px;
+}
+
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    margin: auto;
+    padding: 15mm 12mm;
+    color: #111;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.logo {
+    width: 22%;
+    text-align: center;
+}
+
+.logo-icon {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.logo h5 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.header-center {
+    width: 56%;
+    text-align: center;
+}
+
+.stamp {
+    width: 55px;
+    height: 55px;
+    border: 2px dotted #333;
+    border-radius: 50%;
+    margin: auto auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.header-center h3 {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.header-center p {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.school-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px 0 12px;
+}
+
+/* Schedule Table */
+
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    border: 2px solid #222;
+}
+
+.schedule th,
+.schedule td {
+    border: 1px solid #333;
+    height: 22px;
+    padding: 3px 2px;
+    font-size: 10px;
+    overflow-wrap: break-word;
+}
+
+.schedule thead th {
+    background: #d2e6ec;
+    height: 30px;
+    font-weight: bold;
+    font-size: 10px;
+    border-bottom: 2px solid #222;
+}
+
+.schedule .day-column,
+.schedule tbody th {
+    width: 9%;
+    background: #d2e6ec;
+    font-weight: bold;
+}
+
+.schedule tbody th {
+    font-size: 12px;
+}
+
+.schedule tbody tr {
+    height: 22px;
+}
+
+/* Subject row */
+
+.schedule tbody tr:nth-child(3n + 1) td {
+    font-weight: bold;
+}
+
+/* Teacher row */
+
+.teacher-row td {
+    font-size: 9px;
+    color: #333;
+}
+
+/* Room row */
+
+.room-row td {
+    font-size: 9px;
+}
+
+/* Separation between days */
+
+.schedule tbody tr:nth-child(3n) {
+    border-bottom: 2px solid #333;
+}
+
+.schedule tbody tr:last-child {
+    border-bottom: 2px solid #222;
+}
+
+/* Signatures */
+
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 45px;
+    gap: 10px;
+}
+
+.signatures div {
+    flex: 1;
+}
+
+.signatures h4 {
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.signatures p {
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+/* Print Settings */
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: avoid;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* Mobile Preview */
+
+@media screen and (max-width: 800px) {
+    body {
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .page {
+        transform-origin: top right;
+        width: 210mm;
+    }
+}
